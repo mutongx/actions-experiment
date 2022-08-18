@@ -9,4 +9,4 @@ jobs:
       - run: |
           echo $pr
         env:
-          pr: ${{ github.event.issue.pull_request }}
+          pr: ${{ github.event.issue.pull_request.merge_commit_sha }}
