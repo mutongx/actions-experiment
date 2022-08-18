@@ -8,6 +8,6 @@ jobs:
     steps:
       - run: |
           pr="$(curl -H "Authorization: token $GITHUB_TOKEN" $pr_url)"
-          echo pr
+          echo "$pr"
         env:
           pr_url: ${{ github.event.issue.pull_request.url }}
