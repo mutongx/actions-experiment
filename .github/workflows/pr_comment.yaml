@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          pr="$(curl -H "Authorization: token $GITHUB_TOKEN" $pr_url)"
+          pr="$(curl -fsSL -H "Authorization: token $token" $pr_url)"
           echo "$pr"
         env:
+          token: ${{ github.token }}
           pr_url: ${{ github.event.issue.pull_request.url }}
