@@ -9,4 +9,4 @@ jobs:
       - run: |
           echo $pr
         env:
-          pr: ${{ toJson(github.event.issue.pull_request) }}
+          pr: ${{ toJson(github) }}
