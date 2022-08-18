@@ -8,7 +8,8 @@ jobs:
     steps:
       - run: |
           pr="$(curl -fsSL -H "Authorization: token $token" $pr_url)"
-          echo "$pr"
+          commit="$(echo "$pr" | jq -r .head.sha)"
+          echo "$commit"
         env:
           token: ${{ github.token }}
           pr_url: ${{ github.event.issue.pull_request.url }}
