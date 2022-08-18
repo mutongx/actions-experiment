@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $pr
+          pr="$(curl -H "Authorization: token $GITHUB_TOKEN" $pr_url)"
+          echo pr
         env:
-          pr: ${{ toJson(github) }}
+          pr_url: ${{ github.event.issue.pull_request.url }}
