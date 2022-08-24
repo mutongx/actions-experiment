@@ -1,0 +1,15 @@
+# This is a basic workflow to help you get started with Actions
+
+name: pr
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo "$payload"
+        env:
+          payload: ${{ toJson(github) }}
